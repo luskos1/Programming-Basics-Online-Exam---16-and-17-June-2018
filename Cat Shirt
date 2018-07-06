@@ -1,0 +1,48 @@
+using System;
+
+namespace _2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double sleeveSize = double.Parse(Console.ReadLine());
+            double frontSize = double.Parse(Console.ReadLine());
+            string cloth = Console.ReadLine();
+            string tie = Console.ReadLine();
+            double clothPrice = 0;
+            if (cloth == "Linen")
+            {
+                clothPrice = 15;
+            }
+            else if (cloth == "Cotton")
+            {
+                clothPrice = 12;
+            }
+            else if (cloth == "Denim")
+            {
+                clothPrice = 20;
+            }
+            else if(cloth == "Twill")
+            {
+                clothPrice = 16;
+            }
+            else if (cloth == "Flannel")
+            {
+                clothPrice = 11;
+            }
+
+            double wholeShirt = (sleeveSize * 2) + (frontSize * 2);
+            wholeShirt += wholeShirt * 0.1;
+            wholeShirt = wholeShirt / 100;
+            double price = (wholeShirt * clothPrice) + 10;
+
+            if (tie == "Yes")
+            {
+                price += price * 0.2;
+            }
+
+            Console.WriteLine($"The price of the shirt is: {price:F2}lv.");
+        }
+    }
+}
