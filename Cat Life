@@ -1,0 +1,82 @@
+using System;
+
+namespace _3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string breed = Console.ReadLine();
+            string sex = Console.ReadLine();
+            double catMonths = 0;
+            double catYears = 0;
+            string message = string.Empty;
+
+            if (sex == "m")
+            {
+                switch (breed)
+                {
+                    case "British Shorthair":
+                        catYears = 13;
+                        break;
+                    case "Siamese":
+                        catYears = 15;
+                        break;
+                    case "Persian":
+                        catYears = 14;
+                        break;
+                    case "Ragdoll":
+                        catYears = 16;
+                        break;
+                    case "American Shorthair":
+                        catYears = 12;
+                        break;
+                    case "Siberian":
+                        catYears = 11;
+                        break;
+                    default:
+                        message = breed + " is invalid cat!";
+                        break;
+                }
+            }
+            else if (sex == "f")
+            {
+                switch (breed)
+                {
+                    case "British Shorthair":
+                        catYears = 14;
+                        break;
+                    case "Siamese":
+                        catYears = 16;
+                        break;
+                    case "Persian":
+                        catYears = 15;
+                        break;
+                    case "Ragdoll":
+                        catYears = 17;
+                        break;
+                    case "American Shorthair":
+                        catYears = 13;
+                        break;
+                    case "Siberian":
+                        catYears = 12;
+                        break;
+                    default:
+                        message = breed + " is invalid cat!";
+                        break;
+                }
+            }
+
+            if (message != breed + " is invalid cat!")
+            {
+                catMonths = (catYears * 12) / 6;
+                Console.WriteLine($"{(int)Math.Floor(catMonths)} cat months");
+            }
+            else
+            {
+                Console.WriteLine(message);
+            }
+            
+        }
+    }
+}
