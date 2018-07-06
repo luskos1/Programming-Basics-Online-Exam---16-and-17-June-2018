@@ -1,0 +1,45 @@
+using System;
+
+namespace _6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int hrs = int.Parse(Console.ReadLine());
+            bool isEvenDay = false;
+            bool isEvenHr = false;
+            double dayTax = 0;
+            double total = 0;
+            double price = 0;
+
+            for (int i = 1; i <= days; i++)
+            {
+                for (int m = 1; m <= hrs; m++)
+                {
+                    if (isEvenDay == true && isEvenHr == false)
+                    {
+                        price = 2.5;
+                    }
+                    else if(isEvenDay == false && isEvenHr == true)
+                    {
+                        price = 1.25;
+                    }
+                    else
+                    {
+                        price = 1;
+                    }
+                    dayTax += Math.Round(price,2);
+                    isEvenHr = !isEvenHr;
+                }
+                isEvenDay = !isEvenDay;
+                isEvenHr = false;
+                total += dayTax;
+                Console.WriteLine($"Day: {i} - {dayTax:f2} leva");
+                dayTax = 0;
+            }
+            Console.WriteLine($"Total: {Math.Round(total,2):f2} leva");
+        }
+    }
+}
