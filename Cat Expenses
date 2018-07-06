@@ -1,0 +1,23 @@
+using System;
+
+
+namespace _1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double catBedPrice = double.Parse(Console.ReadLine());
+            double catToiletPrice = double.Parse(Console.ReadLine());
+            double catFoodMonthly = catToiletPrice + (catToiletPrice * 0.25);
+            double catToysMonthly = catFoodMonthly - (catFoodMonthly * 0.5);
+            double vetExpenses = catToysMonthly + (catToysMonthly * 0.1);
+
+            double monthlyExpenses = catToiletPrice + catFoodMonthly + catToysMonthly + vetExpenses;
+            monthlyExpenses += monthlyExpenses * 0.05;
+
+            double yearExpenses = catBedPrice + (monthlyExpenses * 12);
+            Console.WriteLine($"{yearExpenses:f2}"+ " lv.");
+        }
+    }
+}
