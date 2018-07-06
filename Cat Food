@@ -1,0 +1,110 @@
+using System;
+
+namespace _5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int width = n * 4;
+            char dot = '.';
+            char pipe = '|';
+            char leftSlash = '\\';
+            char rightSlash = '/';
+            char wave = '~';
+            char emptySpace = ' ';
+            char leftCBrakey = '{';
+            char rightCBrakey = '}';
+            string meow = "MEOW";
+            string food = "FOOD";
+
+            string dots = new string(dot, n-1);
+            string waves = new string(wave, n * 2);
+            string eSpace = string.Empty;
+            //..|\/\/\/|..
+            Console.Write(dots + pipe.ToString());
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(leftSlash.ToString()+rightSlash.ToString());
+            }
+            Console.Write(pipe.ToString() + dots);
+            Console.WriteLine();
+            //..|~~~~~~|..
+            Console.WriteLine(dots + pipe.ToString() + waves + pipe.ToString() + dots);
+
+            //..|{}{}{}|..
+            //..| {}{} |..
+            //..|  {}  |..
+            int iCount = 0;
+            for (int i = n; i >= 1; i--)
+            {
+                Console.Write(dots + pipe.ToString());
+                if (iCount > 0)
+                {
+                    eSpace = new string(emptySpace, iCount);
+                    Console.Write(eSpace);
+                }
+                for (int j = i; j >= 1; j--)
+                {
+                    Console.Write(leftCBrakey.ToString() + rightCBrakey.ToString());
+                }
+                if (iCount > 0)
+                {
+                    eSpace = new string(emptySpace, iCount);
+                    Console.Write(eSpace);
+                }
+                Console.Write(pipe.ToString() + dots);
+                iCount++;
+                Console.WriteLine();
+            }
+
+            //..| MEOW |..
+            iCount = (width - ((((n - 1) * 2) + 6)))/2;
+            eSpace = new string(emptySpace, iCount);
+            Console.WriteLine(dots + pipe.ToString() + eSpace + meow + eSpace + pipe.ToString() + dots);
+            //..| FOOD |..
+            //..| MEOW |..
+            iCount = (width - ((((n - 1) * 2) + 6))) / 2;
+            eSpace = new string(emptySpace, iCount);
+            Console.WriteLine(dots + pipe.ToString() + eSpace + food + eSpace + pipe.ToString() + dots);
+
+            //..|  {}  |..
+            //..| {}{} |..
+            //..|{}{}{}|..
+
+            iCount = (width - (((n - 1) * 2) + 4)) /2;
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(dots + pipe.ToString());
+                if (iCount > 0)
+                {
+                    eSpace = new string(emptySpace, iCount);
+                    Console.Write(eSpace);
+                }
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(leftCBrakey.ToString() + rightCBrakey.ToString());
+                }
+                if (iCount > 0)
+                {
+                    eSpace = new string(emptySpace, iCount);
+                    Console.Write(eSpace);
+                }
+                Console.Write(pipe.ToString() + dots);
+                iCount--;
+                Console.WriteLine();
+            }
+
+            //..|~~~~~~|..
+            Console.WriteLine(dots + pipe.ToString() + waves + pipe.ToString() + dots);
+            //..|\/\/\/|..
+            Console.Write(dots + pipe.ToString());
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(leftSlash.ToString() + rightSlash.ToString());
+            }
+            Console.Write(pipe.ToString() + dots);
+        }
+    }
+}
