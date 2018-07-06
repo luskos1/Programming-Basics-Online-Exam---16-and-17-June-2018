@@ -1,0 +1,25 @@
+using System;
+
+namespace _4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string c = string.Empty;
+            for (int i = 1; i <= n; i++)
+            {
+                string catName = Console.ReadLine();
+                string catFamily = Console.ReadLine();
+                int YY = int.Parse(Console.ReadLine());
+
+                int a = Convert.ToInt32(catName[0]);
+                int b = Convert.ToInt32(catFamily[0]);
+                Console.WriteLine(YY.ToString() + a + b + i);
+            }
+
+            
+        }
+    }
+}
